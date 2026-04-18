@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Example workflow - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Import from CIRIquant" href="import-from-ciriquant.html" /><link rel="prev" title="Usage" href="usage.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Example workflow"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>overcooked-ebiomedpku</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">circFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/about.html">About circFL-seq &amp; circfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/library-construction.html">circFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/circfull/index.html">circfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/usage.html">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/outputs.html">Output files</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">ucircFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/about.html">About ucircFL-seq &amp; ucircfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/library-construction.html">ucircFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/ucircfull/index.html">ucircfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/umi-extraction.html">UMI extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/umi-clustering.html">UMI clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/circrna-identification.html">circRNA identification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">DEBKS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About DEBKS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import-from-ciriquant.html">Import from CIRIquant</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">SERVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/about.html">About SERVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/example.html">Example pipeline</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/about.html">About TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Deep-TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/about.html">About Deep-TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TERA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/about.html">About TERA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/example.html">Example</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#prepare-references">Prepare references</a></li>
+<li><a class="reference internal" href="#simulate-data-optional">Simulate data (optional)</a></li>
+<li><a class="reference internal" href="#detect-circrna-example-using-ciri2">Detect circRNA (example using CIRI2)</a></li>
+<li><a class="reference internal" href="#count-linear-junctions-optional-if-already-available">Count linear junctions (optional if already available)</a></li>
+<li><a class="reference internal" href="#annotate-circrna-lengths-optional">Annotate circRNA lengths (optional)</a></li>
+<li><a class="reference internal" href="#detect-de-circrnas">Detect DE circRNAs</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">overcooked-ebiomedpku</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Example workflow</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="example-workflow">
+<h1>Example workflow<a class="headerlink" href="#example-workflow" title="Link to this heading">¶</a></h1>
+<p>This example follows the upstream DEBKS example pipeline.</p>
+<section id="prepare-references">
+<h2>Prepare references<a class="headerlink" href="#prepare-references" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Index genome FASTA.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">samtools<span class="w"> </span>faidx<span class="w"> </span>hg19.fa
+</span></pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Prepare sorted and tabix-indexed GTF.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="w"> </span>gencode.v19.annotation.gtf<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-k<span class="w"> </span><span class="m">1</span>,1<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span>,4n<span class="w"> </span><span class="p">|</span><span class="w"> </span>bgzip<span class="w"> </span>&gt;<span class="w"> </span>gencode.v19.annotation.sort.gtf.gz
+</span><span data-line="2">tabix<span class="w"> </span>gencode.v19.annotation.sort.gtf.gz
+</span></pre></div>
+</div>
+</section>
+<section id="simulate-data-optional">
+<h2>Simulate data (optional)<a class="headerlink" href="#simulate-data-optional" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">mkdir<span class="w"> </span>dataset1
+</span><span data-line="2">python<span class="w"> </span>sim_circ.py<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>dataset1<span class="w"> </span>gencode.v19.annotation.sort.gtf.gz<span class="w"> </span>outJunction_mouse.txt
+</span><span data-line="3">
+</span><span data-line="4">mkdir<span class="w"> </span>dataset2
+</span><span data-line="5">python<span class="w"> </span>sim_circ2.py<span class="w"> </span><span class="m">0</span>.01<span class="w"> </span>dataset2<span class="w"> </span>gencode.v19.annotation.sort.gtf.gz<span class="w"> </span>outJunction_mouse.txt
+</span></pre></div>
+</div>
+</section>
+<section id="detect-circrna-example-using-ciri2">
+<h2>Detect circRNA (example using CIRI2)<a class="headerlink" href="#detect-circrna-example-using-ciri2" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">ls<span class="w"> </span>CIRI/*.ciri<span class="w"> </span>&gt;<span class="w"> </span>samplelist.txt
+</span><span data-line="2">DEBKS<span class="w"> </span>merge<span class="w"> </span>-s<span class="w"> </span>ciri2<span class="w"> </span>-f<span class="w"> </span>samplelist.txt
+</span></pre></div>
+</div>
+</section>
+<section id="count-linear-junctions-optional-if-already-available">
+<h2>Count linear junctions (optional if already available)<a class="headerlink" href="#count-linear-junctions-optional-if-already-available" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">ls<span class="w"> </span>bam/*/Aligned.sortedByCoord.out.bam<span class="w"> </span>&gt;<span class="w"> </span>bamlist.txt
+</span><span data-line="2">DEBKS<span class="w"> </span>count<span class="w"> </span>-c<span class="w"> </span>merge_pos.txt<span class="w"> </span>-f<span class="w"> </span>bamlist.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">6</span>
+</span></pre></div>
+</div>
+</section>
+<section id="annotate-circrna-lengths-optional">
+<h2>Annotate circRNA lengths (optional)<a class="headerlink" href="#annotate-circrna-lengths-optional" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">DEBKS<span class="w"> </span>anno<span class="w"> </span>-c<span class="w"> </span>merge_pos.txt<span class="w"> </span>-m<span class="w"> </span>hg19.fa<span class="w"> </span>-g<span class="w"> </span>gencode.v19.annotation.sort.gtf.gz
+</span></pre></div>
+</div>
+</section>
+<section id="detect-de-circrnas">
+<h2>Detect DE circRNAs<a class="headerlink" href="#detect-de-circrnas" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">DEBKS<span class="w"> </span>dec<span class="w"> </span>-c<span class="w"> </span>merge_circ.txt<span class="w"> </span>-l<span class="w"> </span>merge_linear.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">20</span><span class="w"> </span>-e<span class="w"> </span>anno_len.txt
+</span></pre></div>
+</div>
+<p>Optional alternate linear-junction input:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">DEBKS<span class="w"> </span>dec<span class="w"> </span>-c<span class="w"> </span>merge_circ.txt<span class="w"> </span>-l<span class="w"> </span>linear_jun.txt<span class="w"> </span>-t<span class="w"> </span><span class="m">20</span><span class="w"> </span>-e<span class="w"> </span>anno_len.txt<span class="w"> </span>-o<span class="w"> </span>dec_star.txt
+</span></pre></div>
+</div>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="usage.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Usage</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="import-from-ciriquant.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Import from CIRIquant</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, ebiomedpku</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+</html>

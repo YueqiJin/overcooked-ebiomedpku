@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ucircFL-seq Library Construction - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="ucircfull" href="ucircfull/index.html" /><link rel="prev" title="About ucircFL-seq &amp; ucircfull" href="about.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="ucircFL-seq Library Construction"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>overcooked-ebiomedpku</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">circFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/about.html">About circFL-seq &amp; circfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/library-construction.html">circFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/circfull/index.html">circfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/usage.html">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/outputs.html">Output files</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">ucircFL-seq</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About ucircFL-seq &amp; ucircfull</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ucircFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucircfull/index.html">ucircfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ucircfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ucircfull/umi-extraction.html">UMI extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ucircfull/umi-clustering.html">UMI clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ucircfull/circrna-identification.html">circRNA identification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">DEBKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/about.html">About DEBKS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/example.html">Example workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/import-from-ciriquant.html">Import from CIRIquant</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">SERVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/about.html">About SERVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SERVE/example.html">Example pipeline</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/about.html">About TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Deep-TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/about.html">About Deep-TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TERA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/about.html">About TERA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/example.html">Example</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#materials-and-reagents">Materials and Reagents</a></li>
+<li><a class="reference internal" href="#procedure">Procedure</a><ul>
+<li><a class="reference internal" href="#a-circrna-enrichment">A. circRNA enrichment</a><ul>
+<li><a class="reference internal" href="#a1-rrna-depletion">A1. rRNA depletion</a></li>
+<li><a class="reference internal" href="#a2-poly-a-tailing-and-rnase-r-treatment">A2. Poly(A) tailing and RNase R treatment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#b-full-length-circrna-cdna-preparation">B. Full-length circRNA cDNA preparation</a><ul>
+<li><a class="reference internal" href="#b1-reverse-transcription-first-strand-cdna-synthesis">B1. Reverse transcription (first-strand cDNA synthesis)</a></li>
+<li><a class="reference internal" href="#b2-poly-a-tailing-and-second-strand-cdna-synthesis">B2. Poly(A) tailing and second-strand cDNA synthesis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#c-amplification">C. Amplification</a><ul>
+<li><a class="reference internal" href="#c1-first-time-amplification">C1. First time amplification</a></li>
+<li><a class="reference internal" href="#c2-second-time-amplification">C2. Second time amplification</a></li>
+<li><a class="reference internal" href="#c3-sample-quality-check">C3. Sample quality check</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#d-nanopore-library-preparation-and-sequencing">D. Nanopore library preparation and sequencing</a></li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">overcooked-ebiomedpku</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">ucircFL-seq Library Construction</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="ucircfl-seq-library-construction">
+<h1>ucircFL-seq Library Construction<a class="headerlink" href="#ucircfl-seq-library-construction" title="Link to this heading">¶</a></h1>
+<section id="materials-and-reagents">
+<h2>Materials and Reagents<a class="headerlink" href="#materials-and-reagents" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Ethanol</p></li>
+<li><p>DNase/RNase-free water</p></li>
+<li><p>Thermostable RNase H (NEB, catalog number: M0523)</p></li>
+<li><p>DNase I (NEB, catalog number: M0303S)</p></li>
+<li><p>ATP (10 mM) (NEB, catalog number: P0756S)</p></li>
+<li><p>Poly(A) Polymerase (NEB, catalog number: M0276S)</p></li>
+<li><p>RNA Clean Beads (Vazyme, catalog number: N411-01/02)</p></li>
+<li><p>RNase R (Lucigen, catalog number: RNR0725)</p></li>
+<li><p>Equalbit RNA BR Assay Kit (Vazyme, catalog number: EQ212-01)</p></li>
+<li><p>dATP (NEB, catalog number:N0440S)</p></li>
+<li><p>ddATP (Jena Bioscience, catalog number: NU-1015S)</p></li>
+<li><p>HiScript III 1st Strand cDNA Synthesis Kit (Vazyme, catalog number: R312-01/02) or SuperScript IV First-Strand Synthesis System (Invitrogen, catalog number: 18091050)</p></li>
+<li><p>DNA Clean Beads (Vazyme, catalog number: N412-01/02)</p></li>
+<li><p>Terminal deoxynucleotidyl transferase (TDT) (Invitrogen, catalog number: EP0161)</p></li>
+<li><p>UltraHiFi Master Mix (Tiangen, catalog number: KP213-02)</p></li>
+<li><p>SYBR Green I (10000×) (Solarbio, catalog number: SY1020)</p></li>
+<li><p>Equalbit 1× dsDNA HS Assay Kit (Vazyme, catalog number: EQ121-01)</p></li>
+<li><p>First-strand synthesisprimer P1N-UMI-N6: CTACACGACGCTCTTCCGATCTCNNNYRNNNYRNNNYRNNNGAG(N)6(6 randomized mixed bases)</p></li>
+<li><p>Second-strand synthesis primer P2N-T24: AAGCAGTGGTATCAACGCAGAG(T)24(24 consecutive Ts as reverse-complement to polyA)</p></li>
+<li><p>PCR primers: P1N (CTACACGACGCTCTTCCGATCT), P2N (AAGCAGTGGTATCAACGCAGAG)</p></li>
+<li><p>NEBNext FFPE DNA Repair Mix (NEB, catalog number: M6630S)</p></li>
+<li><p>NEBNext Ultra II End repair/dA-tailing Module (NEB, catalog number: E7546S)</p></li>
+<li><p>NEB Blunt/TA Ligase Master Mix (NEB, catalog number: M0367S)</p></li>
+<li><p>NEBNext Quick Ligation Module (NEB, catalog number: E6056S)</p></li>
+<li><p>Nanopore Ligation Sequencing Kit (ONT, catalog number: SQK-LSK110)</p></li>
+<li><p>Nanopore Flow Cell (ONT, catalog number: MinION/PromethION R10.4.1)</p></li>
+<li><p>rRNA probes mix (see Recipes)</p></li>
+<li><p>Probe hybridization buffer (see Recipes)</p></li>
+</ol>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading">¶</a></h2>
+<p><img alt="ucircFL-seq library construction workflow" src="../_images/ucircFL-seq.png" /></p>
+<p><em>Note: RNA is easily degradable. Clean all surfaces with 70% ethanol and RNase-away solution, change gloves frequently, and sterilize all materials before use.</em></p>
+<section id="a-circrna-enrichment">
+<h3>A. circRNA enrichment<a class="headerlink" href="#a-circrna-enrichment" title="Link to this heading">¶</a></h3>
+<section id="a1-rrna-depletion">
+<h4>A1. rRNA depletion<a class="headerlink" href="#a1-rrna-depletion" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Mix total RNA, rRNA probes, and probe hybridization buffer to a final volume of 15 uL.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Total RNA</p></td>
+<td><p>2.0 µg</p></td>
+</tr>
+<tr class="row-odd"><td><p>rRNA probes</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>Probe hybridization buffer</p></td>
+<td><p>2.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nuclease-free water</p></td>
+<td><p>to 15.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Place samples in a thermocycler with heated lid (~105°C). Heat to 95°C for 2 min, slowly cool to 22°C (-0.1°C/s), then incubate at 22°C for 5 min.</p></li>
+<li><p>Add thermostable RNase H and 10x RNase H buffer for a final volume of 20 µL.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>15.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thermostable RNase H</p></td>
+<td><p>2.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10x RNase H buffer</p></td>
+<td><p>2.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nuclease-free water</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Incubate at 50°C for 30 min (lid 50°C).</p></li>
+<li><p>Add DNase I reaction components for a final volume of 30 µL.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>20.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>DNase I</p></td>
+<td><p>2.5 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10x DNase I buffer</p></td>
+<td><p>3.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nuclease-free water</p></td>
+<td><p>4.5 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Incubate at 37°C for 30 min (lid 50°C), then place on ice.</p></li>
+</ol>
+</section>
+<section id="a2-poly-a-tailing-and-rnase-r-treatment">
+<h4>A2. Poly(A) tailing and RNase R treatment<a class="headerlink" href="#a2-poly-a-tailing-and-rnase-r-treatment" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Add ATP, 10x Poly(A) Polymerase Reaction Buffer, and Poly(A) Polymerase for poly(A) tailing.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>30.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>ATP (10 mM)</p></td>
+<td><p>4.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10x Poly(A) Polymerase Reaction Buffer</p></td>
+<td><p>4.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Poly(A) Polymerase</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>Nuclease-free water</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Incubate at 37°C for 30 min (lid 50°C), then place on ice.</p></li>
+<li><p>Purify RNA with 2.5x RNA Clean Beads and elute in 8 µL nuclease-free water. Expected yield is ~200 ng RNA.</p></li>
+<li><p>Remove linear RNA using RNase R.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>8.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 U/µL RNase R</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10x RNase R buffer</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Incubate at 37°C for 30 min, then 70°C for 10 min.</p></li>
+</ol>
+</section>
+</section>
+<section id="b-full-length-circrna-cdna-preparation">
+<h3>B. Full-length circRNA cDNA preparation<a class="headerlink" href="#b-full-length-circrna-cdna-preparation" title="Link to this heading">¶</a></h3>
+<section id="b1-reverse-transcription-first-strand-cdna-synthesis">
+<h4>B1. Reverse transcription (first-strand cDNA synthesis)<a class="headerlink" href="#b1-reverse-transcription-first-strand-cdna-synthesis" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Reverse transcribe enriched circRNA in a 20 µL reaction using P1N-UMI-N6 and HiScript III reverse transcriptase.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>10.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nuclease-free water</p></td>
+<td><p>5.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10x HiScript III Buffer</p></td>
+<td><p>2.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>HiScript III mix</p></td>
+<td><p>2.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>P1N-UMI-N6</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Thermocycler program: 25°C for 5 min, 50°C for 50 min, 70°C for 2 min, 85°C for 5 s (lid ~105°C).</p></li>
+<li><p>Purify cDNA using 0.75x DNA Clean Beads.</p></li>
+</ol>
+</section>
+<section id="b2-poly-a-tailing-and-second-strand-cdna-synthesis">
+<h4>B2. Poly(A) tailing and second-strand cDNA synthesis<a class="headerlink" href="#b2-poly-a-tailing-and-second-strand-cdna-synthesis" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Add poly(A) tails at 3’ ends in a 20 µL reaction using TDT. Final concentrations: dATP 2.5 mM and ddATP 25 µM.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>14.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>100 mM dATP</p></td>
+<td><p>0.5 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>1 mM ddATP</p></td>
+<td><p>0.5 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>5x TDT Buffer</p></td>
+<td><p>4.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>TDT</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Incubate at 37°C for 20 min (lid 50°C), then place on ice.</p></li>
+<li><p>Purify cDNA using 0.75x DNA Clean Beads.</p></li>
+<li><p>Synthesize second-strand cDNA with P2N-T24 and UltraHiFi Mix II.</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>12.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>UltraHiFi Mix II</p></td>
+<td><p>13.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10 µM P2N-T24</p></td>
+<td><p>1.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Note: PCR mix volume may slightly decrease after thorough mixing; total reaction volume remains 25 µL.</em></p>
+<ol class="arabic simple" start="5">
+<li><p>Incubate at 98°C for 2 min, 50°C for 2 min, and 72°C for 10 min (lid ~105 °C), then place on ice.</p></li>
+</ol>
+</section>
+</section>
+<section id="c-amplification">
+<h3>C. Amplification<a class="headerlink" href="#c-amplification" title="Link to this heading">¶</a></h3>
+<section id="c1-first-time-amplification">
+<h4>C1. First time amplification<a class="headerlink" href="#c1-first-time-amplification" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>reaction mix preparation:</p></li>
+</ol>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Volume per sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Last-step reaction</p></td>
+<td><p>26.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>10 µM P1N</p></td>
+<td><p>10.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>10 µM P2N</p></td>
+<td><p>10.0 µL</p></td>
+</tr>
+<tr class="row-odd"><td><p>UltraHiFi Mix II</p></td>
+<td><p>112.0 µL</p></td>
+</tr>
+<tr class="row-even"><td><p>Nuclease-free water</p></td>
+<td><p>92.0 µL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Note: PCR mix volume may slightly decrease after thorough mixing; total reaction volume remains 250 µL.</em></p>
+<ol class="arabic simple" start="2">
+<li><p>Cycles determined through qPCR: use 45 µL reaction mix for qPCR with SYBR Green, and run 20-25 cycles of 98°C for 30 s, 55°C for 20 s, and 72°C for 2.5 min (lid ~105 °C). Choose cycle number at the middle of the exponential phase:</p></li>
+</ol>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nf">library</span><span class="p">(</span><span class="n">qpcR</span><span class="p">)</span>
+</span><span data-line="2"><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;qPCR_results.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">)</span>
+</span><span data-line="3"><span class="n">pcrfit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">pcrfit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="o">=</span><span class="n">l4</span><span class="p">)</span><span class="w"> </span><span class="c1"># pcrfit(data, cycle_column, fluorescence_column, model)</span>
+</span><span data-line="4"><span class="n">eff</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">effenciency</span><span class="p">(</span><span class="n">pcrfit</span><span class="p">)</span>
+</span><span data-line="5"><span class="n">eff</span><span class="o">$</span><span class="n">cpD1</span>
+</span></pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>PCR cycling: cpD1 cycles of 98°C for 30 s, 55°C for 20 s, and 72°C for 2.5 min (lid ~105 °C).</p></li>
+<li><p>Purify with 0.5x DNA Clean Beads and resuspend in 20 µL nuclease-free water.</p></li>
+</ol>
+<p><em>Note: During the second bead selection, longer fragments (~1,000 bp) are preferred to further enrich circRNA cDNA library molecules.</em></p>
+<ol class="arabic simple" start="5">
+<li><p>Quantify the DNA library with Qubit.</p></li>
+</ol>
+</section>
+<section id="c2-second-time-amplification">
+<h4>C2. Second time amplification<a class="headerlink" href="#c2-second-time-amplification" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Prepare PCR mix:
+| Component | Volume per sample |
+|—|—|
+| Purified first-time PCR product | not more than 8 ng |
+| 10 µM P1N | 10.0 µL |
+| 10 µM P2N | 10.0 µL |
+| UltraHiFi Mix II | 125.0 µL |
+| Nuclease-free water | up to 250.0 µL |</p></li>
+<li><p>Cycles determined through qPCR: use 45 µL reaction mix for qPCR with SYBR Green, and run 15-20 cycles of 98°C for 30 s, 55°C for 20 s, and 72°C for 2.5 min (lid ~105 °C). Choose cycle number at the middle of the exponential phase as in the first time amplification step.</p></li>
+<li><p>Run cpD1 cycles of 98°C for 30 s, 55°C for 20 s, and 72°C for 2.5 min (lid ~105 °C).</p></li>
+<li><p>Purify with 0.5x DNA Clean Beads and resuspend in 20 µL nuclease-free water.</p></li>
+</ol>
+</section>
+<section id="c3-sample-quality-check">
+<h4>C3. Sample quality check<a class="headerlink" href="#c3-sample-quality-check" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Quantify library concentration using Qubit. For section C, use 0.5-1 µg cDNA library input.</p></li>
+<li><p>Check fragment distribution with BioAnalyzer. Expected peak is around 1,000 bp; most fragments should range from 600-2,000 bp.</p></li>
+<li><p>If library quality is low, troubleshoot by checking RNA integrity and bead cleanup efficiency, and confirm effective depletion of rRNA/linear RNA in step A.</p></li>
+</ol>
+</section>
+</section>
+<section id="d-nanopore-library-preparation-and-sequencing">
+<h3>D. Nanopore library preparation and sequencing<a class="headerlink" href="#d-nanopore-library-preparation-and-sequencing" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>DNA library for barcoding and ligation sequencing can be prepared according to ONT protocols EXP-NBD104 and SQK-LSK110.</p></li>
+<li><p>Repair and dA-tail 0.1-0.5 µg circFL-seq cDNA using NEBNext FFPE DNA Repair Mix and NEBNext Ultra II End Repair/dA-Tailing Module, then purify with 1.5x DNA Clean Beads.</p></li>
+<li><p>For multiplexing, barcode repaired/end-prepped DNA with Native Barcodes using NEB Blunt/TA Ligase Master Mix, then purify with 1x DNA Clean Beads.</p></li>
+<li><p>Pool barcoded samples equimolarly. Ligate 700 ng pooled DNA (or single unbarcoded sample) to ONT adapter using NEBNext Quick Ligation Module, then purify with 0.5x DNA Clean Beads and Short Fragment Buffer.</p></li>
+<li><p>Mix DNA library with sequencing buffer, load onto PromethION or MinION flow cell, and sequence. For downstream analysis, target ~10 million reads (~10 Gb) per sample.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="about.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">About ucircFL-seq &amp; ucircfull</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="ucircfull/index.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">ucircfull</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, ebiomedpku</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+</html>

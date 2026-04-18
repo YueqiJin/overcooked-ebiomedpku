@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Usage - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example pipeline" href="example.html" /><link rel="prev" title="Installation" href="installation.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Usage"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>overcooked-ebiomedpku</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">circFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/about.html">About circFL-seq &amp; circfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/library-construction.html">circFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../circFL-seq/circfull/index.html">circfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/usage.html">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circFL-seq/circfull/outputs.html">Output files</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">ucircFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/about.html">About ucircFL-seq &amp; ucircfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/library-construction.html">ucircFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ucircFL-seq/ucircfull/index.html">ucircfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/umi-extraction.html">UMI extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/umi-clustering.html">UMI clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ucircFL-seq/ucircfull/circrna-identification.html">circRNA identification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">DEBKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/about.html">About DEBKS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/example.html">Example workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DEBKS/import-from-ciriquant.html">Import from CIRIquant</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">SERVE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About SERVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example pipeline</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/about.html">About TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Deep-TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/about.html">About Deep-TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Deep-TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TERA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/about.html">About TERA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TERA/example.html">Example</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#input-files">Input files</a></li>
+<li><a class="reference internal" href="#serve-py">SERVE.py</a></li>
+<li><a class="reference internal" href="#serve-merge-py">SERVE_merge.py</a></li>
+<li><a class="reference internal" href="#serve-quant-py">SERVE_quant.py</a></li>
+<li><a class="reference internal" href="#serve-quant-qc-py">SERVE_quant_QC.py</a></li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">overcooked-ebiomedpku</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Usage</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<p>SERVE is composed of transcript assembly (<code class="docutils literal notranslate"><span class="pre">SERVE.py</span></code>), annotation merge (<code class="docutils literal notranslate"><span class="pre">SERVE_merge.py</span></code>), and gene quantification (<code class="docutils literal notranslate"><span class="pre">SERVE_quant.py</span></code> + <code class="docutils literal notranslate"><span class="pre">SERVE_quant_QC.py</span></code>).</p>
+<section id="input-files">
+<h2>Input files<a class="headerlink" href="#input-files" title="Link to this heading">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">RNA sequencing files: paired end, in FASTQ and compressed format (fastq.gz)
+</span><span data-line="2">ERV reference bed: ERV annotation in BED format (at least 6 fields: chrom, chromStart, chromEnd, name, score, and strand). See Annotation/HERV_noncoding.bed
+</span><span data-line="3">Reference genome: reference genome sequence (FASTA) is required. You can create genome index before running SERVE, or provide reference annotation (GTF) for SERVE to automatically create index.
+</span></pre></div>
+</div>
+<p>Note: all directories and files should be provided with absolute paths.</p>
+</section>
+<section id="serve-py">
+<h2><a class="reference external" href="http://SERVE.py">SERVE.py</a><a class="headerlink" href="#serve-py" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="http://SERVE.py">SERVE.py</a> is designed for ERV transcript assembly in a single sample.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">Example:
+</span><span data-line="2"><span class="m">1</span>.<span class="w"> </span>SERVE.py<span class="w"> </span>-fq1<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_1.fastq.gz<span class="w"> </span>-fq2<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_2.fastq.gz<span class="w"> </span>-e<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/ERV_ref.bed<span class="w"> </span>-p<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38.fa<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38.gtf<span class="w"> </span>-t<span class="w"> </span><span class="m">16</span>
+</span><span data-line="3"><span class="m">2</span>.<span class="w"> </span>SERVE.py<span class="w"> </span>-fq1<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_1.fastq.gz<span class="w"> </span>-fq2<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_2.fastq.gz<span class="w"> </span>-e<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/ERV_ref.bed<span class="w"> </span>-p<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-S<span class="w"> </span><span class="si">${</span><span class="nv">STAR_index_Dir</span><span class="si">}</span><span class="w"> </span>-G<span class="w"> </span><span class="si">${</span><span class="nv">GMAP_index_Dir</span><span class="si">}</span><span class="w"> </span>-g<span class="w"> </span>GMAP<span class="w"> </span>-t<span class="w"> </span><span class="m">16</span>
+</span></pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: SERVE.py [-h] [-fq1 FASTQ1] [-fq2 FASTQ2] [-e ERV_BED] [-p PREFIX]
+</span><span data-line="2">                [-r REF_GENOME] [-a ANNOTATION]
+</span><span data-line="3">                [--genomeSAindexNbases GENOMESAINDEXNBASES] [-S STAR_INDEX]
+</span><span data-line="4">                [-G GMAP_INDEX] [-g GMAP_INDEX_NAME] [-t NTHREAD]
+</span><span data-line="5">                [--nthreadsort NTHREADSORT] [--nRAMsort NRAMSORT]
+</span><span data-line="6">                [-s STRANDED_TYPE] [-m NRAMASSEM] [--max_intron MAX_INTRON]
+</span><span data-line="7">                [--min_identity MIN_IDENTITY] [--count COUNT] [-o OUTPUT_DIR]
+</span><span data-line="8">
+</span><span data-line="9">SERVE: pipeline for detecting expressed ERVs
+</span><span data-line="10">
+</span><span data-line="11">optional arguments:
+</span><span data-line="12">  -h, --help            show this help message and exit
+</span><span data-line="13">  -fq1 FASTQ1, --fastq1 FASTQ1
+</span><span data-line="14">                        Read1 in FASTQ format (required)
+</span><span data-line="15">  -fq2 FASTQ2, --fastq2 FASTQ2
+</span><span data-line="16">                        Read1 in FASTQ format (required)
+</span><span data-line="17">  -e ERV_BED, --erv_bed ERV_BED
+</span><span data-line="18">                        ERV position in BED format (required)
+</span><span data-line="19">  -p PREFIX, --prefix PREFIX
+</span><span data-line="20">                        Prefix for output file name (default: SERVE)
+</span><span data-line="21">  -r REF_GENOME, --ref_genome REF_GENOME
+</span><span data-line="22">                        Reference genome in FASTA format (required)
+</span><span data-line="23">  -a ANNOTATION, --annotation ANNOTATION
+</span><span data-line="24">                        Genome annotation in GTF format
+</span><span data-line="25">  --genomeSAindexNbases GENOMESAINDEXNBASES
+</span><span data-line="26">                        Length (bases) of the SA pre-indexing string for
+</span><span data-line="27">                        creating STAR index. Typically between 10 and 15. For
+</span><span data-line="28">                        small genomes, this parameter must be scaled down to
+</span><span data-line="29">                        min(14, log2(GenomeLength)/2-1)
+</span><span data-line="30">  -S STAR_INDEX, --STAR_index STAR_INDEX
+</span><span data-line="31">                        Path to the directory where STAR index is generated
+</span><span data-line="32">                        (default: STAR_index)
+</span><span data-line="33">  -G GMAP_INDEX, --GMAP_index GMAP_INDEX
+</span><span data-line="34">                        Path to the directory where GMAP index is generated
+</span><span data-line="35">                        (default: GMAP_index)
+</span><span data-line="36">  -g GMAP_INDEX_NAME, --GMAP_index_name GMAP_INDEX_NAME
+</span><span data-line="37">                        GMAP index name (default: GRCh38)
+</span><span data-line="38">  -t NTHREAD, --nthread NTHREAD
+</span><span data-line="39">                        Number of threads to run SERVE (default: 1)
+</span><span data-line="40">  --nthreadsort NTHREADSORT
+</span><span data-line="41">                        Number of threads for BAM sorting
+</span><span data-line="42">  --nRAMsort NRAMSORT   Maximum available RAM (bytes) for sorting BAM
+</span><span data-line="43">  -s STRANDED_TYPE, --stranded_type STRANDED_TYPE
+</span><span data-line="44">                        Strand-specific RNA-seq read orientation: RF or FR
+</span><span data-line="45">                        (default: None)
+</span><span data-line="46">  -m NRAMASSEM, --nRAMassem NRAMASSEM
+</span><span data-line="47">                        Maximum available RAM (GB) for assembly (default: 10G)
+</span><span data-line="48">  --max_intron MAX_INTRON
+</span><span data-line="49">                        Maximum intron length of ERVs (default: 10000)
+</span><span data-line="50">  --min_identity MIN_IDENTITY
+</span><span data-line="51">                        Minimum identity of ERV transcripts (default: 0.96)
+</span><span data-line="52">  --count COUNT         Minimum ERV count (default: 5)
+</span><span data-line="53">  -o OUTPUT_DIR, --output_dir OUTPUT_DIR
+</span><span data-line="54">                        Output directory (default: .)
+</span></pre></div>
+</div>
+<p>In the output directory, files are organized into three directories:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1_align/</span></code> for alignment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2_assem/</span></code> for assembly</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3_qc/</span></code> for quality control</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">${prefix}_ERV.gtf</span></code> (in <code class="docutils literal notranslate"><span class="pre">3_qc/</span></code>) records ERV information in one sample and can be used by <code class="docutils literal notranslate"><span class="pre">SERVE_merge.py</span></code>.</p>
+</section>
+<section id="serve-merge-py">
+<h2>SERVE_merge.py<a class="headerlink" href="#serve-merge-py" title="Link to this heading">¶</a></h2>
+<p>SERVE_merge.py is designed for annotation merge, suitable for single sample or multiple samples in one condition.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">Example:
+</span><span data-line="2">ls<span class="w"> </span>*gtf<span class="w"> </span>&gt;<span class="w"> </span>gtf.list
+</span><span data-line="3">SERVE_merge.py<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/gtf.list<span class="w"> </span>-p<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38.fa<span class="w"> </span>-t<span class="w"> </span><span class="m">16</span>
+</span></pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: SERVE_merge.py [-h] [-i INPUT_GTF_LIST] [-p PREFIX] [--taco TACO]
+</span><span data-line="2">                      [--stringtie STRINGTIE] [-n NSAMPLE] [-r REF_GENOME]
+</span><span data-line="3">                      [-G GMAP_INDEX] [-g GMAP_INDEX_NAME] [-t NTHREAD]
+</span><span data-line="4">                      [-l LENGTH] [--ratio RATIO] [-o OUTPUT_DIR]
+</span><span data-line="5">
+</span><span data-line="6">SERVE_merge: merge expressed ERVs
+</span><span data-line="7">
+</span><span data-line="8">optional arguments:
+</span><span data-line="9">  -h, --help            show this help message and exit
+</span><span data-line="10">  -i INPUT_GTF_LIST, --input_gtf_list INPUT_GTF_LIST
+</span><span data-line="11">                        A text file with a list of SERVE GTF files (required)
+</span><span data-line="12">  -p PREFIX, --prefix PREFIX
+</span><span data-line="13">                        Prefix for output file name (default: SERVE)
+</span><span data-line="14">  --taco TACO           Merge ERV transcripts with TACO (default: FALSE)
+</span><span data-line="15">  --stringtie STRINGTIE
+</span><span data-line="16">                        Merge ERV transcripts with StringTie (default: FALSE)
+</span><span data-line="17">  -n NSAMPLE, --nsample NSAMPLE
+</span><span data-line="18">                        The number of samples included in the input sample list (required)
+</span><span data-line="19">  -r REF_GENOME, --ref_genome REF_GENOME
+</span><span data-line="20">                        Reference genome in FASTA format (required)
+</span><span data-line="21">  -G GMAP_INDEX, --GMAP_index GMAP_INDEX
+</span><span data-line="22">                        Path to the directory where GMAP index is generated
+</span><span data-line="23">                        (default: GMAP_index)
+</span><span data-line="24">  -g GMAP_INDEX_NAME, --GMAP_index_name GMAP_INDEX_NAME
+</span><span data-line="25">                        GMAP index name (default: GRCh38)
+</span><span data-line="26">  -t NTHREAD, --nthread NTHREAD
+</span><span data-line="27">                        Number of threads to run SERVE_merge (default: 1)
+</span><span data-line="28">  -l LENGTH, --length LENGTH
+</span><span data-line="29">                        Minimum ERV length (bp) (default: 200)
+</span><span data-line="30">  --ratio RATIO         Minimum sample ratio of ERV identified (default: 0.50)
+</span><span data-line="31">  -o OUTPUT_DIR, --output_dir OUTPUT_DIR
+</span><span data-line="32">                        Output directory (default: .)
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">${prefix}_ERV_merge.gtf</span></code> in the output directory records ERV gene information for a condition and can be used for downstream quantification.</p>
+</section>
+<section id="serve-quant-py">
+<h2>SERVE_quant.py<a class="headerlink" href="#serve-quant-py" title="Link to this heading">¶</a></h2>
+<p>SERVE_quant.py is designed for ERV quantification in a single sample.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">Example:
+</span><span data-line="2">cat<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38.gtf<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/<span class="si">${</span><span class="nv">prefix</span><span class="si">}</span>_ERV_merge.gtf<span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38_ERV.gtf
+</span><span data-line="3">SERVE_quant.py<span class="w"> </span>-fq1<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_1.fastq.gz<span class="w"> </span>-fq2<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/test_2.fastq.gz<span class="w"> </span>-p<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38.fa<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/GRCh38_ERV.gtf<span class="w"> </span>-t<span class="w"> </span><span class="m">16</span>
+</span></pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: SERVE_quant.py [-h] [-fq1 FASTQ1] [-fq2 FASTQ2] [-p PREFIX]
+</span><span data-line="2">                      [-r REF_GENOME] [-a ANNOTATION] [-R RSEM_INDEX]
+</span><span data-line="3">                      [-t NTHREAD] [-f FORWARD_PROB] [-o OUTPUT_DIR]
+</span><span data-line="4">
+</span><span data-line="5">SERVE_quant: Quantify expressed ERVs
+</span><span data-line="6">
+</span><span data-line="7">optional arguments:
+</span><span data-line="8">  -h, --help            show this help message and exit
+</span><span data-line="9">  -fq1 FASTQ1, --fastq1 FASTQ1
+</span><span data-line="10">                        Read1 in FASTQ format (required)
+</span><span data-line="11">  -fq2 FASTQ2, --fastq2 FASTQ2
+</span><span data-line="12">                        Read1 in FASTQ format (required)
+</span><span data-line="13">  -p PREFIX, --prefix PREFIX
+</span><span data-line="14">                        Prefix for output file name (default: SERVE)
+</span><span data-line="15">  -r REF_GENOME, --ref_genome REF_GENOME
+</span><span data-line="16">                        Reference genome in FASTA format (required)
+</span><span data-line="17">  -a ANNOTATION, --annotation ANNOTATION
+</span><span data-line="18">                        Genome annotation in GTF format (required)
+</span><span data-line="19">  -R RSEM_INDEX, --RSEM_index RSEM_INDEX
+</span><span data-line="20">                        Path to the directory where RSEM index is generated
+</span><span data-line="21">                        (default: RSEM_index)
+</span><span data-line="22">  -t NTHREAD, --nthread NTHREAD
+</span><span data-line="23">                        Number of threads to run SERVE (default: 1)
+</span><span data-line="24">  -f FORWARD_PROB, --forward_prob FORWARD_PROB
+</span><span data-line="25">                        Probability of generating a read from the forward
+</span><span data-line="26">                        strand of a transcript. 0.5 for unstranded-specific, 0
+</span><span data-line="27">                        for stranded-specific where upstream reads are all
+</span><span data-line="28">                        derived from the forward strand, 1 for stranded-specific
+</span><span data-line="29">                        where upstream reads are all derived from the reverse
+</span><span data-line="30">                        strand (default: 0.5)
+</span><span data-line="31">  -o OUTPUT_DIR, --output_dir OUTPUT_DIR
+</span><span data-line="32">                        Output directory (default: .)
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">${prefix}.genes.results</span></code> in the output directory records gene quantification results. If you have biological replicates, run <code class="docutils literal notranslate"><span class="pre">SERVE_quant_QC.py</span></code> for quality control.</p>
+</section>
+<section id="serve-quant-qc-py">
+<h2>SERVE_quant_QC.py<a class="headerlink" href="#serve-quant-qc-py" title="Link to this heading">¶</a></h2>
+<p>SERVE_quant_QC.py merges gene quantification results (from <code class="docutils literal notranslate"><span class="pre">SERVE_quant.py</span></code>) and performs quality control.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">Example:
+</span><span data-line="2">ls<span class="w"> </span>*genes.results<span class="w"> </span>&gt;<span class="w"> </span>sample.list
+</span><span data-line="3">SERVE_quant_QC.py<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">Dir</span><span class="si">}</span>/sample.list<span class="w"> </span>-p<span class="w"> </span><span class="nb">test</span>
+</span></pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: SERVE_quant_QC.py [-h] [-i INPUT_SAMPLE_LIST] [-p PREFIX]
+</span><span data-line="2">                         [--count COUNT] [--TPM TPM] [--ratio RATIO]
+</span><span data-line="3">                         [-o OUTPUT_DIR]
+</span><span data-line="4">
+</span><span data-line="5">SERVE_quant_QC: Quality control expressed ERVs
+</span><span data-line="6">
+</span><span data-line="7">optional arguments:
+</span><span data-line="8">  -h, --help            show this help message and exit
+</span><span data-line="9">  -i INPUT_SAMPLE_LIST, --input_sample_list INPUT_SAMPLE_LIST
+</span><span data-line="10">                        A text file with a list of SERVE quant files (required)
+</span><span data-line="11">  -p PREFIX, --prefix PREFIX
+</span><span data-line="12">                        Prefix for output file name (default: SERVE)
+</span><span data-line="13">  --count COUNT         Minimum ERV count (default: 5)
+</span><span data-line="14">  --TPM TPM             Minimum ERV TPM (default: 0.1)
+</span><span data-line="15">  --ratio RATIO         Minimum sample ratio of ERV identified (default: 0.50)
+</span><span data-line="16">  -o OUTPUT_DIR, --output_dir OUTPUT_DIR
+</span><span data-line="17">                        Output directory (default: .)
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">${prefix}_ERV_count.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">${prefix}_ERV_TPM.txt</span></code> record gene read counts and TPM, respectively.
+Default QC thresholds: count &gt; 5 and TPM &gt;= 0.1 in over 50% samples.</p>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="installation.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Installation</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="example.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Example pipeline</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, ebiomedpku</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/shibuya.js?v=cac61aee"></script></body>
+</html>

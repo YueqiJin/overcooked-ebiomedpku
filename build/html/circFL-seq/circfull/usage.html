@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Usage - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Output files" href="outputs.html" /><link rel="prev" title="Installation" href="installation.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=e1a1ceaf" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=44020203" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Usage"/>
+    <meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../../index.html">
+      
+      
+      <strong>overcooked-ebiomedpku</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">circFL-seq</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About circFL-seq &amp; circfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library-construction.html">circFL-seq Library Construction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">circfull</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html">Output files</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">ucircFL-seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ucircFL-seq/about.html">About ucircFL-seq &amp; ucircfull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ucircFL-seq/library-construction.html">ucircFL-seq Library Construction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ucircFL-seq/ucircfull/index.html">ucircfull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ucircFL-seq/ucircfull/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ucircFL-seq/ucircfull/umi-extraction.html">UMI extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ucircFL-seq/ucircfull/umi-clustering.html">UMI clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ucircFL-seq/ucircfull/circrna-identification.html">circRNA identification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">DEBKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../DEBKS/about.html">About DEBKS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DEBKS/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DEBKS/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DEBKS/example.html">Example workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../DEBKS/import-from-ciriquant.html">Import from CIRIquant</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">SERVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../SERVE/about.html">About SERVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SERVE/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SERVE/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SERVE/example.html">Example pipeline</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../TEIRI/about.html">About TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Deep-TEIRI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Deep-TEIRI/about.html">About Deep-TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Deep-TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Deep-TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Deep-TEIRI/example.html">Example</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">TERA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../TERA/about.html">About TERA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TERA/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TERA/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../TERA/example.html">Example</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#command-overview">Command overview</a></li>
+<li><a class="reference internal" href="#common-workflow">Common workflow</a><ul>
+<li><a class="reference internal" href="#inputs">Inputs</a></li>
+<li><a class="reference internal" href="#trim-split-raw-reads">1. Trim/split raw reads</a></li>
+<li><a class="reference internal" href="#detect-full-length-circrna-from-clean-reads-rg">2. Detect full-length circRNA from clean reads (RG)</a></li>
+<li><a class="reference internal" href="#identify-strand-information">3. Identify strand information</a></li>
+<li><a class="reference internal" href="#detect-from-stranded-reads-srg">4. Detect from stranded reads (sRG)</a></li>
+<li><a class="reference internal" href="#build-consensus-with-dnsc">5. Build consensus with DNSC</a></li>
+<li><a class="reference internal" href="#detect-from-dnsc-consensus-crg">6. Detect from DNSC consensus (cRG)</a></li>
+<li><a class="reference internal" href="#merge-and-filter-circrnas-mrg">7. Merge and filter circRNAs (mRG)</a></li>
+<li><a class="reference internal" href="#annotate-full-length-circrnas">8. Annotate full-length circRNAs</a></li>
+<li><a class="reference internal" href="#quantify-gene-expression">9. Quantify gene expression</a></li>
+<li><a class="reference internal" href="#call-variants">10. Call variants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#key-command-options">Key command options</a><ul>
+<li><a class="reference internal" href="#rg">RG</a></li>
+<li><a class="reference internal" href="#dnsc">DNSC</a></li>
+<li><a class="reference internal" href="#crg">cRG</a></li>
+<li><a class="reference internal" href="#strand">strand</a></li>
+<li><a class="reference internal" href="#srg">sRG</a></li>
+<li><a class="reference internal" href="#mrg">mRG</a></li>
+<li><a class="reference internal" href="#anno">anno</a></li>
+<li><a class="reference internal" href="#geneexp">geneExp</a></li>
+<li><a class="reference internal" href="#var">var</a></li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">overcooked-ebiomedpku</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">circfull</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Usage</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+  <article class="yue" role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<section id="command-overview">
+<h2>Command overview<a class="headerlink" href="#command-overview" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</span></pre></div>
+</div>
+<p>Supported commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RG</span></code>: Reference-guided detection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DNSC</span></code>: De novo self-correction to consensus sequence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cRG</span></code>: Reference-guided detection using DNSC-corrected reads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strand</span></code>: Identify transcript strand of circFL-seq reads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sRG</span></code>: Reference-guided detection with stranded reads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mRG</span></code>: Merge circRNA results from RG and cRG/sRG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anno</span></code>: Annotate full-length circRNAs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">geneExp</span></code>: Quantify gene expression to evaluate linear RNA residuals</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var</span></code>: Call variants in circRNAs</p></li>
+</ul>
+</section>
+<section id="common-workflow">
+<h2>Common workflow<a class="headerlink" href="#common-workflow" title="Link to this heading">¶</a></h2>
+<section id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">rawFq</span><span class="o">=</span>M1.example.fq
+</span><span data-line="2"><span class="nv">cleanFq</span><span class="o">=</span>M1.clean.fq
+</span><span data-line="3"><span class="nv">gtfFile</span><span class="o">=</span>gencode.v19.annotation.sort.gtf.gz
+</span><span data-line="4"><span class="nv">genome</span><span class="o">=</span>hg19.fa
+</span><span data-line="5"><span class="nv">thread</span><span class="o">=</span><span class="m">80</span>
+</span><span data-line="6"><span class="nv">outDir</span><span class="o">=</span>circFL_example
+</span></pre></div>
+</div>
+</section>
+<section id="trim-split-raw-reads">
+<h3>1. Trim/split raw reads<a class="headerlink" href="#trim-split-raw-reads" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">porechop-runner.py<span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-i<span class="w"> </span><span class="nv">$rawFq</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>--barcode_threshold<span class="w"> </span><span class="m">95</span><span class="w"> </span>--check_reads<span class="w"> </span><span class="m">1000</span>
+</span></pre></div>
+</div>
+</section>
+<section id="detect-full-length-circrna-from-clean-reads-rg">
+<h3>2. Detect full-length circRNA from clean reads (RG)<a class="headerlink" href="#detect-full-length-circrna-from-clean-reads-rg" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>RG<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-g<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">$gtfFile</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+<section id="identify-strand-information">
+<h3>3. Identify strand information<a class="headerlink" href="#identify-strand-information" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>strand<span class="w"> </span>-f<span class="w"> </span><span class="nv">$rawFq</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">$gtfFile</span><span class="w"> </span>-l<span class="w"> </span><span class="m">100</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+<section id="detect-from-stranded-reads-srg">
+<h3>4. Detect from stranded reads (sRG)<a class="headerlink" href="#detect-from-stranded-reads-srg" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>sRG<span class="w"> </span>-g<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">$gtfFile</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+<section id="build-consensus-with-dnsc">
+<h3>5. Build consensus with DNSC<a class="headerlink" href="#build-consensus-with-dnsc" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>DNSC<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span><span data-line="2">circfull<span class="w"> </span>DNSC<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-c
+</span></pre></div>
+</div>
+</section>
+<section id="detect-from-dnsc-consensus-crg">
+<h3>6. Detect from DNSC consensus (cRG)<a class="headerlink" href="#detect-from-dnsc-consensus-crg" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>cRG<span class="w"> </span>-f<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-g<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">$gtfFile</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+<section id="merge-and-filter-circrnas-mrg">
+<h3>7. Merge and filter circRNAs (mRG)<a class="headerlink" href="#merge-and-filter-circrnas-mrg" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">rmsk</span><span class="o">=</span>rmsk.bed.gz
+</span><span data-line="2">circfull<span class="w"> </span>mRG<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-g<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-c<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+<section id="annotate-full-length-circrnas">
+<h3>8. Annotate full-length circRNAs<a class="headerlink" href="#annotate-full-length-circrnas" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>anno<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">outDir</span><span class="si">}</span>/mRG/circFL_Normal_pass.bed<span class="w"> </span>-a<span class="w"> </span><span class="nv">$gtfFile</span><span class="w"> </span>-o<span class="w"> </span><span class="si">${</span><span class="nv">outDir</span><span class="si">}</span>/mRG/circFL_Normal_pass_anno.txt
+</span></pre></div>
+</div>
+</section>
+<section id="quantify-gene-expression">
+<h3>9. Quantify gene expression<a class="headerlink" href="#quantify-gene-expression" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nv">umgtfFile</span><span class="o">=</span>gencode.v19.annotation.gtf
+</span><span data-line="2"><span class="nv">gene_ref</span><span class="o">=</span>ref_gene.fa
+</span><span data-line="3">createGeneRef<span class="w"> </span><span class="nv">$umgtfFile</span><span class="w"> </span><span class="nv">$genome</span><span class="w"> </span><span class="nv">$gene_ref</span>
+</span><span data-line="4">circfull<span class="w"> </span>geneExp<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">$gene_ref</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span>
+</span></pre></div>
+</div>
+</section>
+<section id="call-variants">
+<h3>10. Call variants<a class="headerlink" href="#call-variants" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull<span class="w"> </span>var<span class="w"> </span>-f<span class="w"> </span><span class="nv">$cleanFq</span><span class="w"> </span>-g<span class="w"> </span><span class="nv">$genome</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">$outDir</span><span class="w"> </span>-t<span class="w"> </span><span class="nv">$thread</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$outDir</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="key-command-options">
+<h2>Key command options<a class="headerlink" href="#key-command-options" title="Link to this heading">¶</a></h2>
+<section id="rg">
+<h3>RG<a class="headerlink" href="#rg" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull RG -f fastq -g genome -a anno [-u] [-t threads] [-r] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="dnsc">
+<h3>DNSC<a class="headerlink" href="#dnsc" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull DNSC -f fastq [-t threads] [-c] [-m mem] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="crg">
+<h3>cRG<a class="headerlink" href="#crg" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull cRG -f DNSC -g genome -a anno [-t threads] [-u] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="strand">
+<h3>strand<a class="headerlink" href="#strand" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull strand -f fastq -F fastq2 -a anno [-r RG_dir] [-l hang_len] [-t threads] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="srg">
+<h3>sRG<a class="headerlink" href="#srg" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull sRG -g genome -a anno [-s strandDir] [-t threads] [-r] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="mrg">
+<h3>mRG<a class="headerlink" href="#mrg" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull mRG -f fastq -g genome [-r RG] [-c cRG] [-s sRG] [-t threads] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="anno">
+<h3>anno<a class="headerlink" href="#anno" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull anno -b bed -a anno [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="geneexp">
+<h3>geneExp<a class="headerlink" href="#geneexp" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull geneExp -f fastq -r ref [-t threads] [-o output]
+</span></pre></div>
+</div>
+</section>
+<section id="var">
+<h3>var<a class="headerlink" href="#var" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">circfull var -f fastq -g genome [-r RG_dir] [-t threads] [-o output]
+</span></pre></div>
+</div>
+<p>Note: Higher thread counts increase memory usage.</p>
+</section>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="installation.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Installation</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="outputs.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Output files</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2026, ebiomedpku</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/shibuya.js?v=cac61aee"></script></body>
+</html>
