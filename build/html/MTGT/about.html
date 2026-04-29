@@ -2,7 +2,7 @@
 <html lang="en" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Usage - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Example" href="example.html" /><link rel="prev" title="Installation" href="installation.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MTGT - overcooked-ebiomedpku documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="MTM" href="../MTM/about.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e1a1ceaf" />
@@ -17,7 +17,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Usage"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="MTGT"/>
     <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -93,11 +93,11 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="../SERVE/example.html">Example pipeline</a></li>
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">TEIRI</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">About TEIRI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/about.html">About TEIRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TEIRI/example.html">Example</a></li>
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">Deep-TEIRI</span></p>
 <ul>
@@ -118,8 +118,8 @@ data-aria-dark="Switch to auto color mode">
 <li class="toctree-l1"><a class="reference internal" href="../MTM/about.html">MTM</a></li>
 </ul>
 <p class="caption" role="heading" aria-level="3"><span class="caption-text">MTGT</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../MTGT/about.html">MTGT</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MTGT</a></li>
 </ul>
 
         </div>
@@ -132,10 +132,22 @@ data-aria-dark="Switch to auto color mode">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
-<li><a class="reference internal" href="#input-files">Input files</a></li>
-<li><a class="reference internal" href="#teiri-correct-py">TEIRI_correct.py</a></li>
-<li><a class="reference internal" href="#teiri-merge-py">TEIRI_merge.py</a></li>
-<li><a class="reference internal" href="#teiri-consolidate-py">TEIRI_consolidate.py</a></li>
+<li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
+<li><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+<li><a class="reference internal" href="#obtain-mtgt">Obtain MTGT</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#input-files">Input Files</a></li>
+<li><a class="reference internal" href="#training">Training</a></li>
+<li><a class="reference internal" href="#inference">Inference</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#contact">Contact</a></li>
+<li><a class="reference internal" href="#citation">Citation</a></li>
 </ul>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
@@ -153,7 +165,7 @@ data-aria-dark="Switch to auto color mode">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Usage</strong>
+        <strong itemprop="name">MTGT</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -166,53 +178,89 @@ data-aria-dark="Switch to auto color mode">
 </div><div class="flex flex-col break-words justify-between">
       <div class="relative min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
   <article class="yue" role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="mtgt">
+<h1>MTGT<a class="headerlink" href="#mtgt" title="Link to this heading">¶</a></h1>
+<section id="about">
+<h2>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
+<p>MTGT (Multiscale Text Feature-Guided Transformer) is a deep learning framework for medical image segmentation. It uses multiscale text features to guide a Transformer architecture and improve segmentation performance on medical imaging datasets.</p>
+<p><img alt="MTGT overview" src="../_images/MTGT.jpg" /></p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<section id="software-requirements">
+<h3>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Python 3.x</p></li>
+<li><p>PyTorch (GPU version recommended for training)</p></li>
+<li><p>Common Python libraries used by the repository (for example NumPy, pandas, OpenCV)</p></li>
+</ul>
+</section>
+<section id="hardware-requirements">
+<h3>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>A CUDA-capable GPU with sufficient memory is recommended</p></li>
+<li><p>Default batch size is 4; reduce to 2 in <code class="docutils literal notranslate"><span class="pre">Config.py</span></code> if out-of-memory errors occur</p></li>
+</ul>
+</section>
+<section id="obtain-mtgt">
+<h3>Obtain MTGT<a class="headerlink" href="#obtain-mtgt" title="Link to this heading">¶</a></h3>
+<p>Clone the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zlxokok/MTGT.git
+</span></pre></div>
+</div>
+<p>Enter the project directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="nb">cd</span><span class="w"> </span>MTGT
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
+<p>MTGT includes model training (<code class="docutils literal notranslate"><span class="pre">main_MTGT.py</span></code>) and inference (<code class="docutils literal notranslate"><span class="pre">infer_MTGT.py</span></code>).</p>
 <section id="input-files">
-<h2>Input files<a class="headerlink" href="#input-files" title="Link to this heading">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">GTF files:
-</span><span data-line="2">    GTF files generated by stringtie from short-read RNA-seq.
-</span><span data-line="3">BED12 file:
-</span><span data-line="4">    BED12 generated by flair correct. In brief, long-read RNA-seq reads are aligned to the genome by minimap2, converted from sorted BAM to BED12, then splice sites are corrected by flair correct using genome annotations and short-read splice junctions.
-</span><span data-line="5">TSS signal:
-</span><span data-line="6">    Counts of uniquely mapped reads (CAGE and/or RAMPAGE) supporting TSS in TSV format (at least 5 fields: chrom, chromStart, chromEnd, strand, score).
-</span><span data-line="7">TE reference bed:
-</span><span data-line="8">    TE annotation in BED format (at least 6 fields: chrom, chromStart, chromEnd, ID, name, strand).
-</span><span data-line="9">eRNA reference bed:
-</span><span data-line="10">    eRNA annotation in BED format (at least 6 fields: chrom, chromStart, chromEnd, ID, name, strand).
-</span><span data-line="11">Reference GTF:
-</span><span data-line="12">    Reference GTF file for gene annotations.
-</span></pre></div>
-</div>
+<h3>Input Files<a class="headerlink" href="#input-files" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Medical image datasets with paired segmentation masks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Config.py</span></code> for dataset paths and hyperparameters</p></li>
+<li><p>BUSI split files such as <code class="docutils literal notranslate"><span class="pre">Train_text.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">Val_text.xlsx</span></code></p></li>
+</ul>
 </section>
-<section id="teiri-correct-py">
-<h2>TEIRI_correct.py<a class="headerlink" href="#teiri-correct-py" title="Link to this heading">¶</a></h2>
-<p>TEIRI_correct.py extracts and filters first exons, then corrects first-exon TSS using supporting reads from long-read RNA-seq, CAGE, and RAMPAGE.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: TEIRI_correct.py [-h] [-i GTF_LIST] [-r REFERENCE_GTF] [-l CORRECTED_BED12] [-c TSS_SCORE] [--TE_anno TE_ANNO] [--eRNA_anno ERNA_ANNO]
-</span><span data-line="2">                        [--max_exon1_length MAX_EXON1_LENGTH] [--min_exon1_length MIN_EXON1_LENGTH] [--tss_window TSS_WINDOW] [--max_tss MAX_TSS]
-</span><span data-line="3">                        [--min_NGS_ratio MIN_NGS_RATIO] [--min_TGS_reads MIN_TGS_READS] [--threshold THRESHOLD] [--TGS_threshold TGS_THRESHOLD]
-</span><span data-line="4">                        [--SE_exclude SE_EXCLUDE] [--min_NGS_ratio_SE MIN_NGS_RATIO_SE] [--min_TGS_reads_SE MIN_TGS_READS_SE] [--SE_threshold SE_THRESHOLD]
-</span><span data-line="5">                        [-p PREFIX]
+<section id="training">
+<h3>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>main_MTGT.py
 </span></pre></div>
 </div>
+<p>Main outputs:</p>
+<ul class="simple">
+<li><p>Trained model checkpoint</p></li>
+<li><p>Training logs and metrics (for example loss and mIoU)</p></li>
+</ul>
 </section>
-<section id="teiri-merge-py">
-<h2>TEIRI_merge.py<a class="headerlink" href="#teiri-merge-py" title="Link to this heading">¶</a></h2>
-<p>TEIRI_merge.py merges transcripts using corrected TSSs and is suitable for multiple samples in one condition.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: TEIRI_merge.py [-h] [-i GTF_LIST] [-r REFERENCE_GTF] [-l CORRECTED_BED12] [--corrected_tss CORRECTED_TSS]
-</span><span data-line="2">                      [--corrected_tss_single CORRECTED_TSS_SINGLE] [--TGS_weight TGS_WEIGHT] [--illumina_threshold ILLUMINA_THRESHOLD]
-</span><span data-line="3">                      [--nanopore_threshold NANOPORE_THRESHOLD] [--max_transcripts MAX_TRANSCRIPTS] [--trunctated_exclude TRUNCTATED_EXCLUDE]
-</span><span data-line="4">                      [--min_transcript_length MIN_TRANSCRIPT_LENGTH] [-p PREFIX]
+<section id="inference">
+<h3>Inference<a class="headerlink" href="#inference" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span data-line="1">python<span class="w"> </span>infer_MTGT.py
 </span></pre></div>
 </div>
+<p>Main outputs:</p>
+<ul class="simple">
+<li><p>Predicted segmentation masks</p></li>
+<li><p>Evaluation metrics (for example mDice, mIoU, Recall, Precision, and F1-score)</p></li>
+</ul>
 </section>
-<section id="teiri-consolidate-py">
-<h2>TEIRI_consolidate.py<a class="headerlink" href="#teiri-consolidate-py" title="Link to this heading">¶</a></h2>
-<p>TEIRI_consolidate.py consolidates TE-initiated RNAs across multiple conditions (for example, different tissues).</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span data-line="1">usage: TEIRI_consolidate.py [-h] [-i GTF_LIST] [-r REFERENCE_GTF] [--TE_anno TE_ANNO] [--tss_merge_distance TSS_MERGE_DISTANCE]
-</span><span data-line="2">                            [--min_exon_length MIN_EXON_LENGTH] [-p PREFIX]
-</span></pre></div>
-</div>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">¶</a></h2>
+<p>This project is publicly shared without a specified license. Contact the repository author for usage permission details.</p>
+</section>
+<section id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Link to this heading">¶</a></h2>
+<p>For questions about MTGT:</p>
+<p><a class="reference external" href="mailto:zhaoxuanlong254&#37;&#52;&#48;gmail&#46;com">zhaoxuanlong254<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+</section>
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading">¶</a></h2>
+<p>If you use MTGT in your research, cite:</p>
+<p>Zhao L, Wang T, Zhang X, et al. MTGT: Multiscale Text Feature-Guided Transformer in medical image segmentation. Image and Vision Computing, 2026, 165: 105846.</p>
 </section>
 </section>
 
@@ -222,18 +270,10 @@ data-aria-dark="Switch to auto color mode">
   </svg>
   <span>Back to top</span>
 </button><div class="navigation flex print:hidden"><div class="navigation-prev">
-    <a href="installation.html">
+    <a href="../MTM/about.html">
       <i class="i-lucide chevron-left"></i>
       <div class="page-info">
-        <span>Previous</span><div class="title">Installation</div></div>
-    </a>
-  </div><div class="navigation-next">
-    <a href="example.html">
-      <div class="page-info">
-        <span>Next</span>
-        <div class="title">Example</div>
-      </div>
-      <i class="i-lucide chevron-right"></i>
+        <span>Previous</span><div class="title">MTM</div></div>
     </a>
   </div></div></div>
     </div>
